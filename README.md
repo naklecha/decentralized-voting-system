@@ -21,5 +21,5 @@ A user will walk into a government authorized center and complete his/her biomet
 
  - Azure Blockchain
  - Docker (deployment of portal)
- - Flask (for web framework)
+ - Flask (web framework)
  - Python 
