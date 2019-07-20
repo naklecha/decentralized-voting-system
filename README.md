@@ -1,6 +1,6 @@
 # decentralized-voting
 
-A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom compnies ect.) and cast their vote using our portal.
+A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom compnies ect.) and cast their vote using the proposed portal.
 
 ## Key Advantages
 
@@ -23,3 +23,4 @@ A user will walk into a government authorized center and complete his/her biomet
  - Docker (deployment of portal)
  - Flask (web framework)
  - Python 
+
