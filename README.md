@@ -33,6 +33,7 @@ During the election time the admin will initiate the election. When the election
 ## Technologies
 
  - Azure Blockchain
+ - Aadhaar API service
  - Docker (deployment of portal)
  - Flask (web framework)
  - Python 
