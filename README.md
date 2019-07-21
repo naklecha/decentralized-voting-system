@@ -19,7 +19,7 @@ A user will walk into a government authorized center and complete his/her biomet
 
 ### Voting System Workflow
 
-<img src="voting_system.PNG" alt="VOTING SYSTEM WORKFLOW" height="350px"/>
+<img src="voting_system.PNG" alt="VOTING SYSTEM WORKFLOW" height="400px"/>
 
 ### Technologies
 
