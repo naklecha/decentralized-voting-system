@@ -15,10 +15,10 @@ A decentralized voting system where a user can walk into a government authorized
 
 ## A Vote's Story
 
-A user will walk into a government authorized center and complete his/her biometric verification. Once the verification is complete the user will be taken to a web-based portal **(developed by me)** where he/she will be presented with the voting options. The portal then sends the infomation of the user's vote (encrypted) to azure blockchain service where the data will be decrypted and the vote's transaction from the user to the party will take place. The party with the most votes is elected. During each election time the users are granted one vote which will make sure only one transation can be made by the user during the whole election process.
+A user will walk into a government authorized center and complete his/her biometric verification. Once the verification is complete the user will be taken to a web-based portal **(developed by me)** where he/she will be presented with the voting options. The portal then sends the information of the user's vote (encrypted) to azure blockchain service where the data will be decrypted and the vote's transaction from the user to the party will take place. The party with the most votes is elected. During each election time the users are granted one vote which will make sure only one transaction can be made by the user during the whole election process.
 
-NOTE: All diagrams are made by me and appropriate credits must be given before copying it.
-##  Workflow Diagram
+**NOTE:** All diagrams are made by me and appropriate credits must be given before copying it.
+## Workflow Diagram
 
  <img src="blockchain.PNG" alt="BLOCKCHAIN WORKFLOW" height="350px"/>
 
@@ -26,10 +26,14 @@ NOTE: All diagrams are made by me and appropriate credits must be given before c
 
 <img src="voting_system.PNG" alt="VOTING SYSTEM WORKFLOW" height="400px"/>
 
+During the election time the admin will initiate the election. When the election is initiated, each valid user from the Aadhar database is granted a vote (coin). This way when the election period starts each valid user will have 1 vote automatically and no VoterID is required. The user cannot vote again for that election period as he will have 0 votes remaining. Along with granting one vote to each valid user the candidate list is sent to the front end to the portal (which is setup at govt. authorized locations). The front end can display useful information on the candidate and can aid in their decision making (display promises, proposals etc.). The encrypted vote along with the user information is sent to the backend where the vote cast method adds the vote to the ledger and the transaction is complete. 
+
+**NOTE:** At the end of the election, the vote not used by a user is taken back and the candidate with the most votes is elected.
+
 ## Technologies
 
  - Azure Blockchain
  - Docker (deployment of portal)
  - Flask (web framework)
  - Python 
-
+ 
