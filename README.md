@@ -2,6 +2,7 @@
 
 A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom companies etc.) and cast their vote using the proposed portal.
 
+**NOTE:** All diagrams are made by me and appropriate credits must be given before copying it.
 ## Key Advantages
 
  - **No VoterID required** as 1 vote (coin) is granted to each valid user (age:18) from the Aadhar database 
@@ -17,7 +18,6 @@ A decentralized voting system where a user can walk into a government authorized
 
 A user will walk into a government authorized center and complete his/her biometric verification. Once the verification is complete the user will be taken to a web-based portal **(developed by me)** where he/she will be presented with the voting options. The portal then sends the information of the user's vote (encrypted) to azure blockchain service where the data will be decrypted and the vote's transaction from the user to the party will take place. The party with the most votes is elected. During each election time the users are granted one vote which will make sure only one transaction can be made by the user during the whole election process.
 
-**NOTE:** All diagrams are made by me and appropriate credits must be given before copying it.
 ## Workflow Diagram
 
  <img src="blockchain.PNG" alt="BLOCKCHAIN WORKFLOW" height="350px"/>
