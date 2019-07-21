@@ -34,7 +34,7 @@ During the election time the admin will initiate the election. When the election
 
  - Azure Blockchain
  - Aadhaar API service
- - Docker (deployment of portal)
+ - Docker (deployment of portal on the cloud)
  - Flask (web framework)
  - Python 
  
