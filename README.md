@@ -4,10 +4,13 @@ A decentralized voting system where a user can walk into a government authorized
 
 ### Key Advantages
 
- - Secure vote by Azure blockchain and biometric authentication (using pre-existing Aadhar database)
- - Reduced cost during election process
- - Shorter wait times as it is decentralized
- - A vote can be cast from anywhere in the country
+ - **No VoterID required** as 1 vote (coin) is granted to each valid user (age:18) from the Aadhar database 
+ - **Secure vote** by Azure blockchain and biometric authentication (using pre-existing Aadhar database)
+ - **Reduced cost** during election process
+ - **Shorter wait times** as it is decentralized
+ - A vote can be cast from **anywhere in the country**
+ - **Highly scalable** design
+ - **Longer election periods** as the portal can be up for days together, in turn **increasing voter turnout**
 
 ### A Vote's Story
 
