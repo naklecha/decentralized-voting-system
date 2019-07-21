@@ -11,7 +11,7 @@ A decentralized voting system where a user can walk into a government authorized
  - A vote can be cast from **anywhere in the country**
  - **Highly scalable** design
  - **Longer election periods** as the portal can be up for days together, in turn **increasing voter turnout**
- - Portal **front end** can provide useful infomation on the candidate and **can aid in their decision making** (display promises, proposals etc.)
+ - Portal **front end** can provide useful information on the candidate and **can aid in their decision making** (display promises, proposals etc.)
 
 ## A Vote's Story
 
