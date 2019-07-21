@@ -1,6 +1,6 @@
 # decentralized-voting-system
 
-A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom compnies ect.) and cast their vote using the proposed portal.
+A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom companies etc.) and cast their vote using the proposed portal.
 
 ## Key Advantages
 
@@ -11,6 +11,7 @@ A decentralized voting system where a user can walk into a government authorized
  - A vote can be cast from **anywhere in the country**
  - **Highly scalable** design
  - **Longer election periods** as the portal can be up for days together, in turn **increasing voter turnout**
+ - Portal **front end** can provide useful infomation on the candidate and **can aid in their decision making** (display promises, proposals etc.)
 
 ## A Vote's Story
 
