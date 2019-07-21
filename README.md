@@ -4,7 +4,7 @@ A decentralized voting system where a user can walk into a government authorized
 
 ### Key Advantages
 
- - Secure vote by blockchain and biometric authentication
+ - Secure vote by Azure blockchain and biometric authentication (using pre-existing Aadhar database)
  - Reduced cost during election process
  - Shorter wait times as it is decentralized
  - A vote can be cast from anywhere in the country
@@ -16,6 +16,10 @@ A user will walk into a government authorized center and complete his/her biomet
 ###  Workflow Diagram
 
 <img src="blockchain.PNG" alt="BLOCKCHAIN WORKFLOW" height="400px"/>
+
+### Voting System
+
+<img src="voting_system.PNG" alt="BLOCKCHAIN WORKFLOW" height="400px"/>
 
 ### Technologies
 
