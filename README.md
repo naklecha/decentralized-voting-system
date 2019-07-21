@@ -20,7 +20,7 @@ A user will walk into a government authorized center and complete his/her biomet
 
 ## Workflow Diagram
 
- <img src="/images/blockchain.PNG" alt="BLOCKCHAIN WORKFLOW" height="550px"/>
+ <img src="/images/workflow.PNG" alt="BLOCKCHAIN WORKFLOW" height="550px"/>
  
 ## Voting System Workflow
 
@@ -28,7 +28,7 @@ During the election time the admin will initiate the election. When the election
 
 **NOTE:** At the end of the election, if a vote is not used by a user, it is taken back and the candidate with the most votes is elected.
 
-<img src="/images/votingsystem.PNG" alt="VOTING SYSTEM WORKFLOW" height="600px"/>
+<img src="/images/voting_system.PNG" alt="VOTING SYSTEM WORKFLOW" height="600px"/>
 
 ## Technologies
 
