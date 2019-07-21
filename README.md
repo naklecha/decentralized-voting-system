@@ -20,7 +20,7 @@ A user will walk into a government authorized center and complete his/her biomet
 
 ## Workflow Diagram
 
- <img src="/images/workflow.PNG" alt="BLOCKCHAIN WORKFLOW" height="550px"/>
+ <img src="/images/workflow_idea.PNG" alt="BLOCKCHAIN WORKFLOW" height="550px"/>
  
 ## Voting System Workflow
 
