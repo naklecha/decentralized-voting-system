@@ -9,3 +9,6 @@ build
 
 # environment variables
 mnemonic.env
+
+# auto-generated files
+package-lock.json
