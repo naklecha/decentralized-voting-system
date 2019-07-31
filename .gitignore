@@ -8,4 +8,4 @@ coverage
 build
 
 # environment variables
-.env
+mnemonic.env
