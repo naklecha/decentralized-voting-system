@@ -9,6 +9,7 @@ contract Election {
     mapping(address => bool) public voters;
     mapping(uint => Candidate) public candidates;
     uint public candidatesCount;
+
     event votedEvent (
         uint indexed _candidateId
     );
@@ -16,6 +17,14 @@ contract Election {
     constructor () public {
         addCandidate("Candidate 1");
         addCandidate("Candidate 2");
+        addCandidate("Candidate 3");
+        addCandidate("Candidate 4");
+        addCandidate("Candidate 5");
+        addCandidate("Candidate 6");
+        addCandidate("Candidate 7");
+        addCandidate("Candidate 8");
+        addCandidate("Candidate 9");
+        addCandidate("Candidate 10");
     }
 
     function addCandidate (string memory _name) private {
