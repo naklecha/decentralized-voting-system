@@ -4,6 +4,9 @@ node_modules
 # truffle
 build
 
+# json files
+settings.json
+
 # environment variables
 mnemonic.env
 
