@@ -38,4 +38,3 @@ During the election time the admin will initiate the election. When the election
  - Flask (web framework)
  - Python 
  
-**NOTE:** This is my idea for CodeFunDo2019.
