@@ -38,3 +38,10 @@ During the election time the admin will initiate the election. When the election
  - Flask (web framework)
  - Python 
  
+### Author
+
+1) Email: nishant.aklecha@gmail.com
+2) LinkedIn: https://www.linkedin.com/in/naklecha
+3) CodeChef: https://www.codechef.com/users/naklecha
+4) PYPI: https://pypi.org/user/naklecha
+5) GitHub: https://github.com/Naklecha
