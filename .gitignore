@@ -1,9 +1,6 @@
 # dependencies
 node_modules
 
-# testing
-coverage
-
 # truffle
 build
 
