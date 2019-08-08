@@ -40,8 +40,8 @@ During the election time the admin will initiate the election. When the election
  
 ### Author
 
-1) Email: nishant.aklecha@gmail.com
-2) LinkedIn: https://www.linkedin.com/in/naklecha
-3) CodeChef: https://www.codechef.com/users/naklecha
-4) PYPI: https://pypi.org/user/naklecha
-5) GitHub: https://github.com/Naklecha
+ - Email: nishant.aklecha@gmail.com
+ - LinkedIn: https://www.linkedin.com/in/naklecha
+ - CodeChef: https://www.codechef.com/users/naklecha
+ - PYPI: https://pypi.org/user/naklecha
+ - GitHub: https://github.com/Naklecha
