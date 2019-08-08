@@ -61,7 +61,7 @@ def home():
         voted.append(aid)
         return str(web3.toHex(tx_hash)),200
     except:
-        return "Error processing",200
+        return "Error processing",500
 
 @app.route("/results" , methods=['GET'])
 def count():
@@ -72,7 +72,7 @@ def count():
             res.append(election.call().candidates(i+1))
         return json.dumps(res),200
     except:
-        return "error processing",200
+        return "Error processing",500
 
 if __name__ == '__main__':
 	app.run(host="127.0.0.1" ,port=3000, debug = True)
