@@ -1,0 +1,21 @@
+<html>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/vote.css') }}">
+  <body>
+    <form>
+      <div id="parent" class="radio-toolbar">
+        <div id="wide">
+          {% for ele in candidates1 %}
+            <input type="radio" id={{ele}} name="candidate" value={{ele}}>
+            <label for={{ele}}>{{ele}}</label><br><br>
+          {% endfor %}
+        </div>
+        <div id="narrow">
+            {% for ele in candidates2 %}
+              <input type="radio" id={{ele}} name="candidate" value={{ele}}>
+              <label for={{ele}}>{{ele}}</label><br><br>
+            {% endfor %}
+          </div>
+      </div>
+    </form>
+  </body>
+</html>
