@@ -68,7 +68,7 @@ input[type="submit"]:hover {
 #submit {
   visibility: hidden;
   float: right;
-  border-right: 2%;
+  border-right: 5%;
 }
 
 #sumbit1 {

@@ -31,12 +31,12 @@ def verify():
 @app.route("/vote", methods=['GET', 'POST'])
 def vote():
     try:
-        resp = requests.get(backend_addr+'candidates_list')
-        candidates = eval(resp.text)
-        print(candidates)
-        candidates1 = candidates[:int(len(candidates)/2)]
-        candidates2 = candidates[int(len(candidates)/2):]
         if('verified' in session):
+            resp = requests.get(backend_addr+'candidates_list')
+            candidates = eval(resp.text)
+            print(candidates)
+            candidates1 = candidates[:int(len(candidates)/2)]
+            candidates2 = candidates[int(len(candidates)/2):]
             if request.method == 'POST':
                 aid = session['aid']
                 session.pop('verified')
@@ -52,6 +52,6 @@ def vote():
             return redirect(url_for('verify'))
     except:
         return "Error processing",500
-    
+
 if __name__ == '__main__':
 	app.run(host="127.0.0.1" ,port=4000, debug = True)

@@ -59,7 +59,7 @@ def home():
         signed_tx = web3.eth.account.signTransaction(transaction, pvt)
         tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
         voted.append(aid)
-        return str(web3.toHex(tx_hash)),200
+        return "Vote successfully casted",200
     except:
         return "Error processing",500
 
