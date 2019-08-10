@@ -1,17 +1,26 @@
 <html>
-<body>
+  <body>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/verification.css') }}">
 
-<h2>Biometric Verification</h2>
+    <h1>Biometric Verification</h1><br>
 
-<form action="" method="POST">
-  Enter your Aadhaar ID:
-    <input name="aid" type="text">
-    <br><br>
-    <input type="radio" name="biometric" value="yes">Yes<br>
-    <input type="radio" name="biometric" value="no">No<br>
-    <br><br>
-    <input type="submit">
-</form>
+    <form action="" method="POST">
+      Enter your Aadhaar ID:
+      <input name="aid" type="text"><br><br>
 
-</body>
+      <div>
+
+            <input type="radio" id="biometric_yes" name="biometric" value="yes">
+            <label onClick = "(function() {document.getElementById('submit').style.visibility = 'visible';})()" for="biometric_yes">yes</label><br><br>
+          
+            <input type="radio" id="biometric_no" name="biometric" value="no">
+            <label onClick = "(function() {document.getElementById('submit').style.visibility = 'visible';})()" for="biometric_no">no</label><br><br>
+
+      </div>
+
+      <input id = "submit" type="submit" value="Submit">
+
+    </form>
+
+  </body>
 </html>

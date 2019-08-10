@@ -27,7 +27,7 @@ print(web3.toHex(tx_hash))
 # ----------------------------------------------------------->
 
 #Make vote from account3
-
+'''
 account3 = "0x35A3c8A48fb58B1d418D62c752Eeb4DA36128564"
 account3_key = "571f96e9291b198b7e024ab950d5868dbdc6b6137ee30bddb51ff450fa7591ce"
 
@@ -38,15 +38,16 @@ transaction['nonce'] = web3.eth.getTransactionCount(account3)
 signed_tx = web3.eth.account.signTransaction(transaction, account3_key)
 tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
 print(web3.toHex(tx_hash))
-
+'''
 
 # ----------------------------------------------------------->
 
 # Check number of votes a candidate has recieved
 
 election = web3.eth.contract(address=contract_addr, abi=abi)
-for i in range(election.call().candidatesCount()):    
-    candidates  = election.call().candidates(i+1)
+print(election.__dict__)
+for i in range(election.caller().candidatesCount()):    
+    candidates  = election.caller().candidates(i+1)
     print(candidates)
 
 # ----------------------------------------------------------->
