@@ -20,7 +20,7 @@ A user will walk into a government authorized center and complete his/her biomet
 
 ## Workflow Diagram
 
- <img src="/images/workflow.PNG" alt="WORKFLOW" height="35%"/>
+ <img src="/images/workflow.PNG" alt="WORKFLOW"/>
  
 ## Voting System Workflow
 
@@ -28,7 +28,7 @@ During the election time the admin will initiate the election. When the election
 
 **NOTE:** At the end of the election, if a vote is not used by a user, it is taken back and the candidate with the most votes is elected.
 
-<img src="/images/portal.PNG" alt="PORTAL WORKFLOW" height="35%"/>
+<img src="/images/portal.PNG" alt="PORTAL WORKFLOW"/>
 
 ## Technologies
 
@@ -40,7 +40,7 @@ During the election time the admin will initiate the election. When the election
  - Flask (web framework)
  - Docker (deployment of portal on the cloud)
 
-<img src="/images/enabled_by.PNG" alt="ENABLED BY" height="10%"/> 
+<img src="/images/enabled_by.PNG" alt="ENABLED BY"/> 
 
 ### Author
 
