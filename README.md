@@ -34,11 +34,11 @@ During the election time the admin will initiate the election. When the election
 
  - Azure Blockchain
  - Aadhaar API service (for biometric authentication)
- - Docker (deployment of portal on the cloud)
- - Flask (web framework)
+ - Python (to communicate with blockchain and for backend and frontend API calls) 
  - Truffle (provides tools to create and test smart contracts)
  - Ganache (to create private blockchain network for testing on localhost) 
- - Python (to communicate with blockchain and for backend and frontend API calls) 
+ - Flask (web framework)
+ - Docker (deployment of portal on the cloud)
 
 <img src="/images/enabled_by.PNG" alt="ENABLED BY" height="10%"/> 
 
