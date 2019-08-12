@@ -20,7 +20,7 @@ A user will walk into a government authorized center and complete his/her biomet
 
 ## Workflow Diagram
 
- <img src="/images/workflow_idea.PNG" alt="BLOCKCHAIN WORKFLOW" height="35%"/>
+ <img src="/images/workflow.PNG" alt="WORKFLOW" height="35%"/>
  
 ## Voting System Workflow
 
@@ -39,7 +39,9 @@ During the election time the admin will initiate the election. When the election
  - Truffle (provides tools to create and test smart contracts)
  - Ganache (to create private blockchain network for testing on localhost) 
  - Python (to communicate with blockchain and for backend and frontend API calls) 
- 
+
+<img src="/images/enabled_by.PNG" alt="ENABLED BY" height="10%"/> 
+
 ### Author
 
  - Email: nishant.aklecha@gmail.com
