@@ -1,3 +1,4 @@
+<span style="font-size:80%"> 
 # decentralized-voting-system
 
 A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom companies etc.) and cast their vote using the proposed portal.
@@ -24,7 +25,7 @@ A user will walk into a government authorized center and complete his/her biomet
  
 ## Voting System Workflow
 
-During the election time the admin will initiate the election. When the election is initiated, each valid user from the Aadhaar database is granted a vote (coin). This way when the election period starts each valid user will have 1 vote automatically and no VoterID is required. The user cannot vote again for that election period as he will have 0 votes remaining. Along with granting one vote to each valid user the candidate list is sent to the front end to the portal (which is setup at govt. authorized locations). The front end can display useful information on the candidate and can aid in their decision making (display promises, proposals etc.). The encrypted vote along with the user information is sent to the backend where the vote cast method adds the vote to the ledger and the transaction is complete. 
+During the election time the admin will initiate the election. When the election is initiated, each valid user from the Aadhaar database is granted a vote (coin). This way when the election period starts each valid user will have 1 vote automatically and no VoterID is required. The user cannot vote again for that election period as he will have 0 votes remaining. Along with granting one vote to each valid user the candidate list is sent to the front end to the portal (which is setup at govt. authorized locations). The front end can display useful information on the candidate and can aid in their decision making (display promises, proposals etc.). The encrypted vote along with the user information is sent to the backend where the vote cast method adds the vote to the ledger and the transaction is complete.
 
 **NOTE:** At the end of the election, if a vote is not used by a user, it is taken back and the candidate with the most votes is elected.
 
@@ -45,3 +46,4 @@ During the election time the admin will initiate the election. When the election
  - CodeChef: https://www.codechef.com/users/naklecha
  - PYPI: https://pypi.org/user/naklecha
  - GitHub: https://github.com/Naklecha
+</span>
