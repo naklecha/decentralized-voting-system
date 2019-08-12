@@ -28,7 +28,7 @@ During the election time the admin will initiate the election. When the election
 
 **NOTE:** At the end of the election, if a vote is not used by a user, it is taken back and the candidate with the most votes is elected.
 
-<img src="/images/portal.PNG" alt="PORTAL WORKFLOW"/>
+<img src="/images/portal_workflow.PNG" alt="PORTAL WORKFLOW"/>
 
 ## Technologies
 
