@@ -1,5 +1,3 @@
-<span style="font-size:80%"> 
- 
 # decentralized-voting-system
 
 A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom companies etc.) and cast their vote using the proposed portal.
@@ -47,4 +45,3 @@ During the election time the admin will initiate the election. When the election
  - CodeChef: https://www.codechef.com/users/naklecha
  - PYPI: https://pypi.org/user/naklecha
  - GitHub: https://github.com/Naklecha
-</span>
