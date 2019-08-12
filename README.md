@@ -1,4 +1,5 @@
 <span style="font-size:80%"> 
+ 
 # decentralized-voting-system
 
 A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom companies etc.) and cast their vote using the proposed portal.
