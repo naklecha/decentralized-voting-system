@@ -33,10 +33,12 @@ During the election time the admin will initiate the election. When the election
 ## Technologies
 
  - Azure Blockchain
- - Aadhaar API service
+ - Aadhaar API service (for biometric authentication)
  - Docker (deployment of portal on the cloud)
  - Flask (web framework)
- - Python 
+ - Truffle (provides tools to create and test smart contracts)
+ - Ganache (to create private blockchain network for testing on localhost) 
+ - Python (backend and frontend API calls) 
  
 ### Author
 
