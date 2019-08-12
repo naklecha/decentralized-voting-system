@@ -18,6 +18,7 @@ accounts = eval(open('accounts').read())
 
 privatekeys = eval(open('private_keys').read())
 
+vote_tx = []
 voted = []
 
 @app.route("/" , methods=['POST'])
@@ -36,6 +37,7 @@ def home():
 
         signed_tx = web3.eth.account.signTransaction(transaction, pvt)
         tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
+        vote_tx.append(tx_hash)
         voted.append(aid)
         return "Vote successfully casted",200
     except:
