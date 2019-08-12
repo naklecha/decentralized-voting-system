@@ -11,7 +11,7 @@ module.exports = {
       network_id: "*",
       gas: 0,
       gasPrice: 0,
-      provider: new HDWalletProvider(fs.readFileSync('c:\\Users\\nisha\\Desktop\\College Work\\CodeFunDo\\voting_portal\\mnemonic.env', 'utf-8'), "https://naklecha.blockchain.azure.com:3200/C7sLbEihlinGLsD2k9AXwVWH"),
+      provider: new HDWalletProvider(fs.readFileSync('mnemonic.env', 'utf-8'), "https://naklecha.blockchain.azure.com:3200/C7sLbEihlinGLsD2k9AXwVWH"),
       consortium_id: 1564473954588
     }
   },
