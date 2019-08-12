@@ -13,3 +13,6 @@ mnemonic.env
 # auto-generated files
 package-lock.json
 bs-config.json
+
+# testing
+testing.py
