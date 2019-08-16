@@ -11,6 +11,19 @@ app.secret_key = 'i love white chocolate'
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return redirect(url_for('verify'))
+
+@app.route("/results", methods=['GET'])
+def results():
+    try:
+        resp = requests.get(backend_addr+'results')
+        if(resp.status_code!=200):
+            return render_template('confirmation.html',message=resp.text),resp.status_code
+        result = eval(resp.text)
+        print(result)
+        result.sort(reverse=True,key=lambda x: x[2])
+        return render_template('results.html',result=result)
+    except:
+        return render_template('confirmation.html',message="Error processing"),500
     
 @app.route("/verify", methods=['GET', 'POST'])
 def verify():
@@ -26,7 +39,7 @@ def verify():
                 return redirect(url_for('vote'))
         return render_template('verification.html')
     except:
-        return "Error processing",500
+        return render_template('confirmation.html',message="Error processing"),500
 
 @app.route("/vote", methods=['GET', 'POST'])
 def vote():
@@ -46,12 +59,12 @@ def vote():
                 print(cid)
                 resp = requests.post(backend_addr,json.dumps({'aadhaarID':aid,'candidateID':cid}))
                 print(resp)
-                return resp.text, resp.status_code
-            return render_template('vote.html',candidates1=candidates1,candidates2=candidates2)
+                return render_template('confirmation.html',message=resp.text,code=resp.status_code),resp.status_code
+            return render_template('vote.html',candidates1=candidates1,candidates2=candidates2),200
         else:
             return redirect(url_for('verify'))
     except:
-        return "Error processing",500
+        return render_template('confirmation.html',message="Error processing"),500
 
 if __name__ == '__main__':
 	app.run(host="127.0.0.1" ,port=4000, debug = True)

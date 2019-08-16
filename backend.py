@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, abort, make_response, request, url_for
+from flask import Flask, jsonify, abort, make_response, request, url_for,session
 from flask import render_template, redirect
 import json
 import re
@@ -8,11 +8,19 @@ import os
 from web3 import Web3
 
 rpc = "http://127.0.0.1:7545"
+
 web3 = Web3(Web3.HTTPProvider(rpc))
-contract_addr = '0x8fDd21C593c5693788E0248b4C86bB66375f8dA7'
 abi = '[{"constant":true,"inputs":[],"name":"candidatesCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidates","outputs":[{"name":"id","type":"uint256"},{"name":"name","type":"string"},{"name":"voteCount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"voters","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_candidateId","type":"uint256"}],"name":"votedEvent","type":"event"},{"constant":false,"inputs":[{"name":"_candidateId","type":"uint256"}],"name":"vote","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]'
+bytecode = '0x608060405234801561001057600080fd5b5061005e6040805190810160405280600b81526020017f43616e6469646174652031000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b6100ab6040805190810160405280600b81526020017f43616e6469646174652032000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b6100f86040805190810160405280600b81526020017f43616e6469646174652033000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b6101456040805190810160405280600b81526020017f43616e6469646174652034000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b6101926040805190810160405280600b81526020017f43616e6469646174652035000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b6101df6040805190810160405280600b81526020017f43616e6469646174652036000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b61022c6040805190810160405280600b81526020017f43616e6469646174652037000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b6102796040805190810160405280600b81526020017f43616e6469646174652038000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b6102c66040805190810160405280600b81526020017f43616e6469646174652039000000000000000000000000000000000000000000815250610318640100000000026401000000009004565b6103136040805190810160405280600c81526020017f43616e6469646174652031300000000000000000000000000000000000000000815250610318640100000000026401000000009004565b61043a565b60026000815480929190600101919050555060606040519081016040528060025481526020018281526020016000815250600160006002548152602001908152602001600020600082015181600001556020820151816001019080519060200190610384929190610395565b506040820151816002015590505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106103d657805160ff1916838001178555610404565b82800160010185558215610404579182015b828111156104035782518255916020019190600101906103e8565b5b5090506104119190610415565b5090565b61043791905b8082111561043357600081600090555060010161041b565b5090565b90565b610404806104496000396000f300608060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630121b93f146100675780632d35a8a2146100945780633477ee2e146100bf578063a3ec138d14610173575b600080fd5b34801561007357600080fd5b50610092600480360381019080803590602001909291905050506101ce565b005b3480156100a057600080fd5b506100a96102f0565b6040518082815260200191505060405180910390f35b3480156100cb57600080fd5b506100ea600480360381019080803590602001909291905050506102f6565b6040518084815260200180602001838152602001828103825284818151815260200191508051906020019080838360005b8381101561013657808201518184015260208101905061011b565b50505050905090810190601f1680156101635780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b34801561017f57600080fd5b506101b4600480360381019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506103b8565b604051808215151515815260200191505060405180910390f35b6000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615151561022657600080fd5b60008111801561023857506002548111155b151561024357600080fd5b60016000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055506001600082815260200190815260200160002060020160008154809291906001019190505550807ffff3c900d938d21d0990d786e819f29b8d05c1ef587b462b939609625b684b1660405160405180910390a250565b60025481565b6001602052806000526040600020600091509050806000015490806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103a85780601f1061037d576101008083540402835291602001916103a8565b820191906000526020600020905b81548152906001019060200180831161038b57829003601f168201915b5050505050908060020154905083565b60006020528060005260406000206000915054906101000a900460ff16815600a165627a7a72305820b68eb5ff20d75cf022502c3d5ebbfb561361bbaf0794da1ad39ba88a313818570029'
+web3.eth.defaultAccount = web3.eth.accounts[0]
+election = web3.eth.contract(abi=abi, bytecode=bytecode)
+tx_hash = election.constructor().transact()
+tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+
+contract_addr = tx_receipt.contractAddress
 
 app = Flask(__name__)
+app.secret_key = 'i love white chocolate too'
 
 accounts = eval(open('accounts').read())
 
@@ -23,36 +31,49 @@ voted = []
 
 @app.route("/" , methods=['POST'])
 def home():
-    try:
-        data = eval(request.data) # {"aadhaarID":int(),"candidateID":int()}
-        aid = int(data["aadhaarID"])-1
-        if(aid in voted):
-            return "Already voted",400
-        cid = int(data["candidateID"])
-        acc = accounts[aid]
-        pvt = privatekeys[aid]
-        contract = web3.eth.contract(address=contract_addr, abi=abi)
-        transaction  = contract.functions.vote(cid).buildTransaction()
-        transaction['nonce'] = web3.eth.getTransactionCount(acc)
+    if('ended' not in session):
+        try:
+            data = eval(request.data) # {"aadhaarID":int(),"candidateID":int()}
+            aid = int(data["aadhaarID"])-1
+            if(aid in voted):
+                return "Already voted",400
+            cid = int(data["candidateID"])
+            acc = accounts[aid]
+            pvt = privatekeys[aid]
+            contract = web3.eth.contract(address=contract_addr, abi=abi)
+            transaction  = contract.functions.vote(cid).buildTransaction()
+            transaction['nonce'] = web3.eth.getTransactionCount(acc)
 
-        signed_tx = web3.eth.account.signTransaction(transaction, pvt)
-        tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
-        vote_tx.append(tx_hash)
-        voted.append(aid)
-        return "Vote successfully casted",200
-    except:
-        return "Error processing",500
+            signed_tx = web3.eth.account.signTransaction(transaction, pvt)
+            tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
+            vote_tx.append(tx_hash)
+            voted.append(aid)
+            return "Vote successfully casted",200
+        except:
+            return "Error processing",500
+    else:
+        return "Election period ended",400
 
 @app.route("/results" , methods=['GET'])
 def count():
-    try:
-        res = []
-        election = web3.eth.contract(address=contract_addr, abi=abi)
-        for i in range(election.caller().candidatesCount()):    
-            res.append(election.caller().candidates(i+1))
-        return json.dumps(res),200
-    except:
-        return "Error processing",500
+    if('ended' in session):
+        print('ended' in session)
+        try:
+            res = []
+            election = web3.eth.contract(address=contract_addr, abi=abi)
+            for i in range(election.caller().candidatesCount()):    
+                res.append(election.caller().candidates(i+1))
+            return json.dumps(res),200
+        except:
+            return "Error processing",500
+    else:
+        return "Election still on going",400
+
+@app.route("/end" , methods=['GET'])
+def end_election():
+    session['ended'] = 1
+    print('ended' in session)
+    return "Election successfully ended",200
 
 @app.route("/number_of_users" , methods=['GET'])
 def number_of_users(): 

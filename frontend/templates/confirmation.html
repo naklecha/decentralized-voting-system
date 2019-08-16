@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <style>
+        body, html {font-family: "Raleway", sans-serif; height: 100%}
+        p {font-size: 400%}
+        button {
+        background-color: rgb(19, 141, 255); /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+
+        button:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+    </style>
+    <body>
+    <div style="height: 30%"></div>
+    <center><p>{{message}}
+            {% if code==200 %}
+                <span style='color: green;'>&#10004;</span>
+            {% else %}
+                <span style='color: red;'>&#10006;</span>
+            {% endif %}
+        </p>
+    <button value="Back" onClick="window.location.href=window.location.href">back</button>
+    </center>    
+    </body>
+</html>
