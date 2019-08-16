@@ -46,7 +46,7 @@ def vote():
                 print(cid)
                 resp = requests.post(backend_addr,json.dumps({'aadhaarID':aid,'candidateID':cid}))
                 print(resp)
-                return resp.text, 200
+                return resp.text, resp.status_code
             return render_template('vote.html',candidates1=candidates1,candidates2=candidates2)
         else:
             return redirect(url_for('verify'))

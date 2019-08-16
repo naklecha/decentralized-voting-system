@@ -27,7 +27,7 @@ def home():
         data = eval(request.data) # {"aadhaarID":int(),"candidateID":int()}
         aid = int(data["aadhaarID"])-1
         if(aid in voted):
-            return "Already voted",200
+            return "Already voted",400
         cid = int(data["candidateID"])
         acc = accounts[aid]
         pvt = privatekeys[aid]
