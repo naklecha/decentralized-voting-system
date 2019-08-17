@@ -28,10 +28,11 @@ privatekeys = eval(open('private_keys').read())
 
 vote_tx = []
 voted = []
+ended = 0
 
 @app.route("/" , methods=['POST'])
 def home():
-    if('ended' not in session):
+    if(not ended):
         try:
             data = eval(request.data) # {"aadhaarID":int(),"candidateID":int()}
             aid = int(data["aadhaarID"])-1
@@ -56,8 +57,7 @@ def home():
 
 @app.route("/results" , methods=['GET'])
 def count():
-    if('ended' in session):
-        print('ended' in session)
+    if(ended):
         try:
             res = []
             election = web3.eth.contract(address=contract_addr, abi=abi)
@@ -71,8 +71,8 @@ def count():
 
 @app.route("/end" , methods=['GET'])
 def end_election():
-    session['ended'] = 1
-    print('ended' in session)
+    global ended
+    ended += 1
     return "Election successfully ended",200
 
 @app.route("/number_of_users" , methods=['GET'])
