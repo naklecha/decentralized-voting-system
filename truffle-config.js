@@ -16,9 +16,4 @@ module.exports = {
     }
   },
   mocha: {},
-  compilers: {
-    solc: {
-      version: "C:/Users/nisha/Desktop/College Work/CodeFunDo/voting_portal/node_modules/solc"
-    }
-  }
 };
