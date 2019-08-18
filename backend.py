@@ -9,10 +9,10 @@ from web3 import Web3
 
 rpc = "https://naklecha.blockchain.azure.com:3200/C7sLbEihlinGLsD2k9AXwVWH"
 
-w3 = Web3(Web3.HTTPProvider(rpc))
+web3 = Web3(Web3.HTTPProvider(rpc))
 abi = '[{"constant":true,"inputs":[],"name":"candidatesCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function","signature":"0x2d35a8a2"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidates","outputs":[{"name":"id","type":"uint256"},{"name":"name","type":"string"},{"name":"voteCount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function","signature":"0x3477ee2e"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"voters","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function","signature":"0xa3ec138d"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor","signature":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_candidateId","type":"uint256"}],"name":"votedEvent","type":"event","signature":"0xfff3c900d938d21d0990d786e819f29b8d05c1ef587b462b939609625b684b16"},{"constant":false,"inputs":[{"name":"_candidateId","type":"uint256"}],"name":"vote","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function","signature":"0x0121b93f"}]'
 
-contract_addr = 0xB2C266A0c73143AB8e56D4cB89a425E01FE5875a
+contract_addr = "0xB2C266A0c73143AB8e56D4cB89a425E01FE5875a"
 
 app = Flask(__name__)
 app.secret_key = 'i love white chocolate too'
@@ -75,14 +75,11 @@ def home():
 @app.route("/results" , methods=['GET'])
 def count():
     if(ended):
-        try:
             res = []
             election = web3.eth.contract(address=contract_addr, abi=abi)
             for i in range(election.caller().candidatesCount()):    
                 res.append(election.caller().candidates(i+1))
             return json.dumps(res),200
-        except:
-            return "Error processing",500
     else:
         return "Election still on going",400
 
