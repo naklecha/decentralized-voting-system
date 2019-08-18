@@ -3,3 +3,5 @@ flask
 web3
 
 requests
+
+wtforms
