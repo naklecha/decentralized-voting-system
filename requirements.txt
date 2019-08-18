@@ -1,0 +1,7 @@
+flask
+
+web3
+
+requests
+
+json
