@@ -3,7 +3,7 @@ from wtforms import Form, TextField, TextAreaField, validators, StringField, Sub
 import requests;
 import json;
 
-backend_addr = "http://localhost:3000/"
+backend_addr = "https://election-backend.azurewebsites.net/"
 
 app = Flask(__name__)
 app.secret_key = 'i love white chocolate'
