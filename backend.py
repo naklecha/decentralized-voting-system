@@ -6,7 +6,6 @@ import requests
 import hashlib
 import os
 from web3 import Web3
-from web3.middleware import geth_poa_middleware
 
 rpc = "https://naklecha.blockchain.azure.com:3200/C7sLbEihlinGLsD2k9AXwVWH"
 
