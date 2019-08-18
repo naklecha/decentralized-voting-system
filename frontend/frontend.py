@@ -6,7 +6,7 @@ import json;
 backend_addr = "https://election-backend.azurewebsites.net/"
 
 app = Flask(__name__)
-app.secret_key = 'i love white chocolate'
+app.secret_key = 'i love white chocolate' 
 
 @app.route("/", methods=['GET', 'POST'])
 def home():
