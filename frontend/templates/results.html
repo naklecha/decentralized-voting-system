@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">  
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+body, html {font-family: "Raleway", sans-serif; height: 100%}
+p {font-size: 300%}
+</style>
+</head>
+<body>
+
+<center>
+<p>Results</p>
+
+<table>
+  <tr>
+    <th>Candidate ID</th>
+    <th>Candidate</th>
+    <th>Votes</th>
+  </tr>
+  {% for ele in result %}
+    <tr>
+      <td>{{ele[0]}}</td>
+      <td>{{ele[1]}}</td>
+      <td>{{ele[2]}}</td>
+    </tr>
+  {% endfor%}
+</table>
+</center>
+</body>
+</html>
