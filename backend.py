@@ -10,9 +10,9 @@ from web3 import Web3
 rpc = "https://naklecha.blockchain.azure.com:3200/C7sLbEihlinGLsD2k9AXwVWH"
 
 web3 = Web3(Web3.HTTPProvider(rpc))
-abi = '[{"constant":true,"inputs":[],"name":"candidatesCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function","signature":"0x2d35a8a2"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidates","outputs":[{"name":"id","type":"uint256"},{"name":"name","type":"string"},{"name":"voteCount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function","signature":"0x3477ee2e"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"voters","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function","signature":"0xa3ec138d"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor","signature":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_candidateId","type":"uint256"}],"name":"votedEvent","type":"event","signature":"0xfff3c900d938d21d0990d786e819f29b8d05c1ef587b462b939609625b684b16"},{"constant":false,"inputs":[{"name":"_candidateId","type":"uint256"}],"name":"vote","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function","signature":"0x0121b93f"}]'
+abi = '[{"constant":true,"inputs":[],"name":"candidatesCount","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"uint256"}],"name":"candidates","outputs":[{"name":"id","type":"uint256"},{"name":"name","type":"string"},{"name":"voteCount","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"voters","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_candidateId","type":"uint256"}],"name":"votedEvent","type":"event"},{"constant":false,"inputs":[],"name":"end","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_candidateId","type":"uint256"}],"name":"vote","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]'
+contract_addr = "0x3883Ba4b649EFfddB2b66Bf0848AE4557Caf4fFE"
 
-contract_addr = "0x2F3c7da466D8Ee8eb57a3498e5170EaE901907e6"
 
 app = Flask(__name__)
 app.secret_key = 'i love white chocolate too'
@@ -87,14 +87,15 @@ def count():
 def end_election():
     global ended
     ended += 1
+    acc = '0xB0BE5EFDe83490f0d8fC64120461660098AE7599'
+    pvt = '25d9479cd21fb800522f8e0c74513f0730f7afac9f3ac7a23d8ad69b7103be52'
     contract = web3.eth.contract(address=contract_addr, abi=abi)
     transaction  = contract.functions.end().buildTransaction()
     transaction['nonce'] = web3.eth.getTransactionCount(acc)
 
     signed_tx = web3.eth.account.signTransaction(transaction, pvt)
     tx_hash = web3.eth.sendRawTransaction(signed_tx.rawTransaction)
-    vote_tx.append(tx_hash)
-    return "Election successfully ended",200
+    return "Election successfully ended\nTx Hash : %s"%(str(tx_hash)),200
 
 @app.route("/number_of_users" , methods=['GET'])
 def number_of_users(): 
@@ -102,6 +103,10 @@ def number_of_users():
         return str(len(accounts)),200
     except:
         return "Error processing",500
+
+@app.route("/isended" , methods=['GET'])
+def isended(): 
+    return str(ended>0),200
 
 @app.route("/candidates_list" , methods=['GET'])
 def candidates_list():

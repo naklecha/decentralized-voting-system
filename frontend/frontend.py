@@ -28,41 +28,49 @@ def results():
 @app.route("/verify", methods=['GET', 'POST'])
 def verify():
     try:
-        if request.method == 'POST':
-            aid = request.form['aid']
-            bio = request.form['biometric']
-            resp = requests.get(backend_addr+'number_of_users')
-            number_of_accounts = int(resp.text)
-            if(bio == 'yes' and aid.isdigit() and int(aid)<=number_of_accounts):
-                session['verified'] = True
-                session['aid'] = int(aid)
-                return redirect(url_for('vote'))
-        return render_template('verification.html')
+        resp = requests.get(backend_addr+'isended')
+        if(not eval(resp.text)):
+            if request.method == 'POST':
+                aid = request.form['aid']
+                bio = request.form['biometric']
+                resp = requests.get(backend_addr+'number_of_users')
+                number_of_accounts = int(resp.text)
+                if(bio == 'yes' and aid.isdigit() and int(aid)<=number_of_accounts):
+                    session['verified'] = True
+                    session['aid'] = int(aid)
+                    return redirect(url_for('vote'))
+            return render_template('verification.html')
+        else:
+            return render_template('confirmation.html',message="Election ended",code=400),400
     except:
         return render_template('confirmation.html',message="Error processing"),500
 
 @app.route("/vote", methods=['GET', 'POST'])
 def vote():
     try:
-        if('verified' in session):
-            resp = requests.get(backend_addr+'candidates_list')
-            candidates = eval(resp.text)
-            print(candidates)
-            candidates1 = candidates[:int(len(candidates)/2)]
-            candidates2 = candidates[int(len(candidates)/2):]
-            if request.method == 'POST':
-                aid = session['aid']
-                session.pop('verified')
-                session.pop('aid')
-                candidate = request.form['candidate']
-                cid = candidates.index(candidate)+1
-                print(cid)
-                resp = requests.post(backend_addr,json.dumps({'aadhaarID':aid,'candidateID':cid}))
-                print(resp)
-                return render_template('confirmation.html',message=resp.text,code=resp.status_code),resp.status_code
-            return render_template('vote.html',candidates1=candidates1,candidates2=candidates2),200
+        resp = requests.get(backend_addr+'isresults')
+        if(not eval(resp.text)):
+            if('verified' in session):
+                resp = requests.get(backend_addr+'candidates_list')
+                candidates = eval(resp.text)
+                print(candidates)
+                candidates1 = candidates[:int(len(candidates)/2)]
+                candidates2 = candidates[int(len(candidates)/2):]
+                if request.method == 'POST':
+                    aid = session['aid']
+                    session.pop('verified')
+                    session.pop('aid')
+                    candidate = request.form['candidate']
+                    cid = candidates.index(candidate)+1
+                    print(cid)
+                    resp = requests.post(backend_addr,json.dumps({'aadhaarID':aid,'candidateID':cid}))
+                    print(resp)
+                    return render_template('confirmation.html',message=resp.text,code=resp.status_code),resp.status_code
+                return render_template('vote.html',candidates1=candidates1,candidates2=candidates2),200
+            else:
+                return redirect(url_for('verify'))
         else:
-            return redirect(url_for('verify'))
+            return render_template('confirmation.html',message="Election ended",code=400),400
     except:
         return render_template('confirmation.html',message="Error processing"),500
 
