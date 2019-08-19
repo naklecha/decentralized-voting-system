@@ -33,7 +33,7 @@ contract Election {
         candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
     }
 
-    function end () private {
+    function end () public {
         goingon = false;
     }
 
