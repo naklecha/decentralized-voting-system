@@ -83,7 +83,7 @@ def count():
     else:
         return "Election still on going",400
 
-@app.route("/end" , methods=['GET'])
+@app.route("/end" , methods=['POST'])
 def end_election():
     global ended
     ended += 1
