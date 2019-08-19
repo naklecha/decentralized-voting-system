@@ -47,7 +47,6 @@ def verify():
 
 @app.route("/vote", methods=['GET', 'POST'])
 def vote():
-    try:
         resp = requests.get(backend_addr+'isended')
         if(not eval(resp.text)):
             if('verified' in session):
@@ -71,8 +70,6 @@ def vote():
                 return redirect(url_for('verify'))
         else:
             return render_template('confirmation.html',message="Election ended",code=400),400
-    except:
-        return render_template('confirmation.html',message="Error processing"),500
-
+    
 if __name__ == '__main__':
 	app.run(host="0.0.0.0" ,port=80, debug = True)
