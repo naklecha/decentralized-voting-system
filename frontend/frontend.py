@@ -48,7 +48,7 @@ def verify():
 @app.route("/vote", methods=['GET', 'POST'])
 def vote():
     try:
-        resp = requests.get(backend_addr+'isresults')
+        resp = requests.get(backend_addr+'isended')
         if(not eval(resp.text)):
             if('verified' in session):
                 resp = requests.get(backend_addr+'candidates_list')
