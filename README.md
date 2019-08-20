@@ -2,6 +2,8 @@
 
 A decentralized voting system where a user can walk into a government authorized center (Ex- banks, telecom companies etc.) and cast their vote using the proposed portal.
 
+**LINK TO DEMO ON YOUTUBE:** https://www.youtube.com/watch?v=tCVSpcgiodM
+
 **NOTE:** All diagrams are made by me and appropriate credits must be given before copying it.
 ## Key Advantages
 
